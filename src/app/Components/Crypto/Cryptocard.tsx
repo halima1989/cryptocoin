@@ -10,20 +10,24 @@ export const Cryptocard = ({
   isBuyVisible,
 }: {
   crypto: CryptoType
-  isBuyVisible:  boolean
+  isBuyVisible: boolean
 }) => {
   return (
-    <div>
-      <div className="flex flex-row flex-end"></div>
+
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
       <img
         src={crypto.image}
         alt={crypto.name}
         className="w-full h-48 object-cover"
       />
-      <p>{crypto.name}</p>
+      <div className="p-4">
+        <h3 className="text-lg font-bold mb-2">{crypto.name}</h3>
+        <p className="text-sm text-gray-600">Value: {crypto.value}</p>
+        <p className="text-sm text-gray-600">
+          Remaining Quantity on server: {crypto.quantity}
+        </p>
+        {isBuyVisible && <BuyCryptoModal crypto={crypto} />} </div>
+    </div>
 
-      <p className="text-sm">Value: {crypto.value}</p>
-      <p className="text-sm">Remaining Quantity on server: {crypto.quantity}</p>
-      {isBuyVisible && <BuyCryptoModal crypto={crypto} />} </div>
   )
 }

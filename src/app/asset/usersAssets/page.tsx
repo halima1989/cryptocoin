@@ -1,5 +1,6 @@
 'use client'
 import { AssetsCard } from "@/app/Components/Crypto/assetsCard"
+import Footer from "@/app/Components/Forms/Footer"
 import Header from "@/app/Components/Forms/Header"
 import { getUsersAssets } from "@/app/Services/offer"
 import { assetsType } from "@/app/Utils/types"
@@ -27,22 +28,26 @@ const page = () => {
 
   return (
 
+    <div><Header />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        {assetsList &&
+          assetsList?.map((asset: any) => {
+            return (
+              <div
+                key={asset.id}
 
-      {assetsList &&
-        assetsList?.map((asset: any) => {
-          return (
-            <div
-              key={asset.id}
+              // className="border-2 border-solid w-80
+              // h-80 rounded-md m-8 p-4 "
+              >
 
-            // className="border-2 border-solid w-80 h-40 rounded-md m-8 p-4 "
-            >
-              <Header />
-              <AssetsCard assets={asset} />
-            </div>
-          )
-        })}
+                <AssetsCard assets={asset} />
+
+              </div>
+            )
+          })}
+      </div>
+      <Footer />
     </div>
 
   )

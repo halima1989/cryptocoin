@@ -1,9 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { CryptoType } from '../Utils/types';
-import {  fetchCryptoSearch, getAllCryptos } from '../Services/crypto';
+import { fetchCryptoSearch, getAllCryptos } from '../Services/crypto';
 
-const SearchCrypto = ({setCryptosList}:any) => {
+const SearchCrypto = ({ setCryptosList }: any) => {
   const [searchedWord, setSearchedWord] = useState("");
 
   useEffect(() => {
@@ -11,8 +11,8 @@ const SearchCrypto = ({setCryptosList}:any) => {
       getAllCryptos().then((res) => {
         setCryptosList(res.data);
       });
-    }else{
-        fetchCryptoSearch(searchedWord).then((res)=>setCryptosList(res.data))
+    } else {
+      fetchCryptoSearch(searchedWord).then((res) => setCryptosList(res.data))
     }
   }, [searchedWord]);
 
@@ -27,10 +27,10 @@ const SearchCrypto = ({setCryptosList}:any) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex ">
       <input
         type="search"
-        className="relative m-0 -me-0.5 block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none"
+        className="relative m-0 -me-0.5 block flex-auto rounded-s border border-solid border-black-200 bg-white bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none"
         placeholder="Search"
         aria-label="Search"
         id="exampleFormControlInput3"
