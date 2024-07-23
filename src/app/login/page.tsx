@@ -11,8 +11,6 @@ export type userType = {
   password: string
 
 }
-
-
 const Login = () => {
   const { push } = useRouter()
   const { register, handleSubmit, setError, formState: { errors } } = useForm<userType>({ mode: "onChange" })
